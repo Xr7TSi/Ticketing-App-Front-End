@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { fetchAllTickets } from "./ticketsAction";
+import { fetchAllOpenTickets, } from "./ticketsAction";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { PageBreadcrumb } from "../../components/breadcrumb/Breadcrumb.comp";
@@ -8,12 +8,12 @@ import { SearchForm } from "../../components/search-form/SearchForm.comp";
 import { TicketTable } from "../../components/ticket-table/TicketTable.comp";
 import DefaultLayout from "../../components/layout/DefaultLayout";
 
-export const ManageTickets = () => {
+export const OpenTickets = () => {
   const dispatch = useDispatch();
   
 
   useEffect(() => {
-    dispatch(fetchAllTickets());
+    dispatch(fetchAllOpenTickets());
   }, [dispatch]);
 
   return (
@@ -21,7 +21,7 @@ export const ManageTickets = () => {
       <Container>
         <Row>
           <Col>
-            <PageBreadcrumb page="Manage Tickets " />
+            <PageBreadcrumb page="Open Tickets " />
           </Col>
         </Row>
         <Row className="mt-4">

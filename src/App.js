@@ -10,7 +10,8 @@ import { Entry } from "./pages/entry/Entry.page";
 import { PasswordOtpForm } from "./pages/password-reset/passwordOtpForm.page";
 import { Dashboard } from "./pages/dashboard/Dashboard.page";
 import { AddTicket } from "./pages/new-ticket/AddTicket.page";
-import { ManageTickets} from "./pages/manage-tickets/ManageTickets.page";
+import { OpenTickets } from "./pages/manage-tickets/OpenTickets.page";
+import { ClosedTickets } from "./pages/manage-tickets/ClosedTickets.page";
 import { Ticket } from "./pages/ticket/Ticket.page";
 import { Registration } from "./pages/registration/Registration.page";
 import { UserVerification } from "./pages/user-verification/UserVerification.page";
@@ -19,16 +20,13 @@ import { loginSuccess } from "./components/login/loginSlice";
 import { fetchNewAccessJWT } from "./api/userAPI";
 import { getUserProfile } from "./pages/dashboard/userAction";
 
-
 function App() {
   const PrivateRoute = ({ children }) => {
     const dispatch = useDispatch();
     const { isAuth } = useSelector((state) => state.login);
     const { user } = useSelector((state) => state.user);
 
-   
     useEffect(() => {
-    
       const updateAccessJWT = async () => {
         // get a new accessJWT and assign it to result
         const result = await fetchNewAccessJWT();
@@ -37,21 +35,23 @@ function App() {
       };
 
       // if accessJWT is not in session storage and crmSIte is in local storage, update set new accessJWT to session storage
-      if(!sessionStorage.getItem('accessJWT') && localStorage.getItem('crmSite')){
+      if (
+        !sessionStorage.getItem("accessJWT") &&
+        localStorage.getItem("crmSite")
+      ) {
         updateAccessJWT();
-      };
-   
-       // if isAuth is false, and accessJWT is in session storage (which should be accomplished by fetchNewAccessJWT), dispatch LoginSuccess to set state.isLoading to false and state.isAuth to true
-      if(!isAuth && sessionStorage.getItem('accessJWT')){
+      }
+
+      // if isAuth is false, and accessJWT is in session storage (which should be accomplished by fetchNewAccessJWT), dispatch LoginSuccess to set state.isLoading to false and state.isAuth to true
+      if (!isAuth && sessionStorage.getItem("accessJWT")) {
         dispatch(loginSuccess());
-      };
+      }
 
       // this may not be needed
-      // if no user._id in state, dispatch getUserProfile.  getUserProfile awaits fetchUser from userAPI, then dispatches getUserSuccess with user data as a parameter. getUserSuccess adds thr user data to state   
-      if(!user._id) {
+      // if no user._id in state, dispatch getUserProfile.  getUserProfile awaits fetchUser from userAPI, then dispatches getUserSuccess with user data as a parameter. getUserSuccess adds thr user data to state
+      if (!user._id) {
         dispatch(getUserProfile());
       }
-   
     }, [dispatch, isAuth, user._id]);
 
     // if isAuth is true, render whatever is child of <PrivateRoute>.  otherwise, redirect to "/"
@@ -64,7 +64,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Entry />} />
           <Route path="/registration" element={<Registration />} />
-          <Route path="/verification/:_id/:email" element={<UserVerification />} />
+          <Route
+            path="/verification/:_id/:email"
+            element={<UserVerification />}
+          />
           <Route path="/password-reset" element={<PasswordOtpForm />} />
           <Route
             path="/dashboard"
@@ -83,21 +86,23 @@ function App() {
             }
           />
           <Route
-            path="/tickets"
+            path="/open-tickets"
             element={
               <PrivateRoute>
-                <ManageTickets />
+                <OpenTickets />
               </PrivateRoute>
             }
           />
-           <Route
-            path="/manage-tickets"
+
+          <Route
+            path="/closed-tickets"
             element={
               <PrivateRoute>
-                <ManageTickets />
+                <ClosedTickets />
               </PrivateRoute>
             }
           />
+
           <Route
             path="/ticket/:tId"
             element={

@@ -4,6 +4,8 @@ const rootURL = "http://localhost:3001/v1/";
 
 const ticketURL = rootURL + "ticket/";
 const getAllTicketsURL = ticketURL + "all-tickets/";
+const getAllOpenTicketsURL = ticketURL + "all-open-tickets/";
+const getAllClosedTicketsURL = ticketURL + "all-closed-tickets/";
 const closeTicketURL = rootURL + "ticket/close-ticket/";
 
 export const getAllTickets = () => {
@@ -17,6 +19,36 @@ export const getAllTickets = () => {
       resolve(result);
     } catch (error) {
       reject("Error at getAllTickets / " + error);
+    }
+  });
+};
+
+export const getAllOpenTickets = () => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const result = await axios.get(getAllOpenTicketsURL, {
+        headers: {
+          Authorization: sessionStorage.getItem("accessJWT"),
+        },
+      });
+      resolve(result);
+    } catch (error) {
+      reject("Error at getAllOpenTickets / " + error);
+    }
+  });
+};
+
+export const getAllClosedTickets = () => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const result = await axios.get(getAllClosedTicketsURL, {
+        headers: {
+          Authorization: sessionStorage.getItem("accessJWT"),
+        },
+      });
+      resolve(result);
+    } catch (error) {
+      reject("Error at getAllClosedTickets / " + error);
     }
   });
 };

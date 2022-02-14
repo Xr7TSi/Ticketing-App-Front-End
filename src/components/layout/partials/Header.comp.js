@@ -45,9 +45,14 @@ export const Header = () => {
             Add Ticket
           </Link>
 
-          <Link to="/manage-tickets" style={styles.linkStyle}>
-            Manage Tickets
+          <Link to="/open-tickets" style={styles.linkStyle}>
+            Open Tickets
           </Link>
+
+          <Link to="/closed-tickets" style={styles.linkStyle}>
+            Closed Tickets
+          </Link>
+          
           <Link to="/" onClick={logMeOut} style={styles.linkStyle}>
             Logout
           </Link>

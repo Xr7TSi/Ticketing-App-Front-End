@@ -15,6 +15,8 @@ import {
 } from "./ticketSlice";
 import {
   getAllTickets,
+  getAllOpenTickets,
+  getAllClosedTickets,
   getSingleTicket,
   addReplyToTicket,
   updateTicketStatusClosed
@@ -30,6 +32,32 @@ export const fetchAllTickets = () => async (dispatch) => {
     result.data.result.length && dispatch(fetchTicketSuccess(result.data.result));
   } catch (error) {
     dispatch(fetchTicketFailure("Error at fetchAllTickets / " + error.message));
+  }
+};
+
+export const fetchAllOpenTickets = () => async (dispatch) => {
+  dispatch(fetchTicketLoading());
+
+  try {
+    const result = await getAllOpenTickets();
+
+    // if there are tickets, dispatch 
+    result.data.result.length && dispatch(fetchTicketSuccess(result.data.result));
+  } catch (error) {
+    dispatch(fetchTicketFailure("Error at fetchAllOpenTickets / " + error.message));
+  }
+};
+
+export const fetchAllClosedTickets = () => async (dispatch) => {
+  dispatch(fetchTicketLoading());
+
+  try {
+    const result = await getAllClosedTickets();
+
+    // if there are tickets, dispatch 
+    result.data.result.length && dispatch(fetchTicketSuccess(result.data.result));
+  } catch (error) {
+    dispatch(fetchTicketFailure("Error at fetchAllClosedTickets / " + error.message));
   }
 };
 

@@ -1,6 +1,5 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Col } from "react-bootstrap";
 import { ResetPassword } from "../../components/password-reset/ResetPassword.comp";
 import UpdatePasswordForm from "../../components/password-reset/UpdatePasswordForm.comp";
 import "./passwordOtpForm.style.css";
