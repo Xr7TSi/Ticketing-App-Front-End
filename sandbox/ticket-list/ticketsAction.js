@@ -25,7 +25,7 @@ export const fetchAllTickets = () => async (dispatch) => {
 
   try {
     const result = await getAllTickets();
-  
+
     // if there are tickets, dispatch 
     result.data.result.length && dispatch(fetchTicketSuccess(result.data.result));
   } catch (error) {

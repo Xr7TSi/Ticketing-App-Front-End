@@ -4,7 +4,7 @@ import { Container, Row, Col, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { TicketTable } from "../../components/ticket-table/TicketTable.comp";
 import { PageBreadcrumb } from "../../components/breadcrumb/Breadcrumb.comp";
-import { fetchAllTickets } from "../ticket-list/ticketsAction";
+import { fetchAllTickets } from "../manage-tickets/ticketsAction";
 import DefaultLayout from "../../components/layout/DefaultLayout";
 
 export const Dashboard = () => {

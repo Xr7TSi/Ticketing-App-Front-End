@@ -10,7 +10,7 @@ import { Entry } from "./pages/entry/Entry.page";
 import { PasswordOtpForm } from "./pages/password-reset/passwordOtpForm.page";
 import { Dashboard } from "./pages/dashboard/Dashboard.page";
 import { AddTicket } from "./pages/new-ticket/AddTicket.page";
-import { TicketList } from "./pages/ticket-list/TicketList.page";
+import { ManageTickets} from "./pages/manage-tickets/ManageTickets.page";
 import { Ticket } from "./pages/ticket/Ticket.page";
 import { Registration } from "./pages/registration/Registration.page";
 import { UserVerification } from "./pages/user-verification/UserVerification.page";
@@ -86,7 +86,15 @@ function App() {
             path="/tickets"
             element={
               <PrivateRoute>
-                <TicketList />
+                <ManageTickets />
+              </PrivateRoute>
+            }
+          />
+           <Route
+            path="/manage-tickets"
+            element={
+              <PrivateRoute>
+                <ManageTickets />
               </PrivateRoute>
             }
           />

@@ -8,7 +8,7 @@ import { SearchForm } from "../../components/search-form/SearchForm.comp";
 import { TicketTable } from "../../components/ticket-table/TicketTable.comp";
 import DefaultLayout from "../../components/layout/DefaultLayout";
 
-export const TicketList = () => {
+export const ManageTickets = () => {
   const dispatch = useDispatch();
   
 
@@ -21,7 +21,7 @@ export const TicketList = () => {
       <Container>
         <Row>
           <Col>
-            <PageBreadcrumb page="Ticket Lists " />
+            <PageBreadcrumb page="Manage Tickets " />
           </Col>
         </Row>
         <Row className="mt-4">

@@ -3,23 +3,8 @@ import axios from "axios";
 const rootURL = "http://localhost:3001/v1/";
 
 const ticketURL = rootURL + "ticket/";
+const getAllTicketsURL = ticketURL + "all-tickets/";
 const closeTicketURL = rootURL + "ticket/close-ticket/";
-const getAllTicketsURL = rootURL + "ticket/all-tickets/";
-
-// export const getAllTickets = () => {
-//   return new Promise(async (resolve, reject) => {
-//     try {
-//       const result = await axios.get(ticketURL, {
-//         headers: {
-//           Authorization: sessionStorage.getItem("accessJWT"),
-//         },
-//       });
-//       resolve(result);
-//     } catch (error) {
-//       reject("Error at getAllTickets / " + error);
-//     }
-//   });
-// };
 
 export const getAllTickets = () => {
   return new Promise(async (resolve, reject) => {

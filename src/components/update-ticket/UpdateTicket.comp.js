@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Form, Button } from "react-bootstrap";
-import { replyToTicket } from "../../pages/ticket-list/ticketsAction";
+import { replyToTicket } from "../../pages/manage-tickets/ticketsAction";
 import PropTypes from "prop-types";
 
 export const UpdateTicket = ({ _id }) => {

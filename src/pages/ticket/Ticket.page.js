@@ -6,8 +6,8 @@ import { MessageHistory } from "../../components/message-history/MessageHistory.
 import { UpdateTicket } from "../../components/update-ticket/UpdateTicket.comp";
 import DefaultLayout from "../../components/layout/DefaultLayout";
 import { useParams } from "react-router-dom";
-import { fetchSingleTicket, closeTicket } from "../ticket-list/ticketsAction";
-import { resetReplyMsg } from "../ticket-list/ticketSlice";
+import { fetchSingleTicket, closeTicket } from "../manage-tickets/ticketsAction";
+import { resetReplyMsg } from "../manage-tickets/ticketSlice";
 
 export const Ticket = () => {
 
@@ -55,7 +55,7 @@ export const Ticket = () => {
             <Button 
             variant="outline-info" 
             onClick={() => dispatch(closeTicket(tId))}
-            disabled={selectedTicket.status === "Closed"}
+            disabled={selectedTicket.status === "closed"}
             >Close Ticket</Button>
           </Col>
         </Row>

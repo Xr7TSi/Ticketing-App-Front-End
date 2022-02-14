@@ -1,7 +1,7 @@
 import React from "react";
 import { Form, Row, Col } from "react-bootstrap";
 import { useDispatch } from "react-redux";
-import { filterSearchedTickets } from "../../pages/ticket-list/ticketsAction";
+import { filterSearchedTickets } from "../../pages/manage-tickets/ticketsAction";
 
 export const SearchForm = () => {
   const dispatch = useDispatch();
