@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Form, Button, Row, Col, Spinner, Alert } from "react-bootstrap";
-// import PropTypes from "prop-types";
 import { subjectText } from "../../utils/validation.js";
 import { openNewTicket } from "./addTicketAction";
 import { resetSuccessMsg } from "./addTicketSlice";
@@ -86,8 +85,8 @@ export const AddTicketForm = () => {
       <hr />
       <div>
         {error && <Alert variant="danger">{error}</Alert>}
-        {successMsg && <Alert variant="primary">{successMsg}</Alert>}
-        {isLoading && <Spinner variant="primary" animation="border" />}
+        {successMsg && <Alert variant="info">{successMsg}</Alert>}
+        {isLoading && <Spinner variant="info" animation="border" />}
       </div>
       <Form autoComplete="off" onSubmit={handleOnSubmit}>
         <Form.Group as={Row}>
@@ -155,9 +154,3 @@ export const AddTicketForm = () => {
   );
 };
 
-// AddTicketForm.propTypes = {
-//   handleOnChange: PropTypes.func.isRequired,
-//   handleOnSubmit: PropTypes.func.isRequired,
-//   formData: PropTypes.object.isRequired,
-//   formDataError: PropTypes.object.isRequired,
-// };

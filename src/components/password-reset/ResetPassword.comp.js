@@ -40,7 +40,7 @@ export const ResetPassword = () => {
               {message}
             </Alert>
           )}
-          {isLoading && <Spinner variant="primary" animation="border" />}
+          {isLoading && <Spinner variant="info" animation="border" />}
           <Form autoComplete="off" onSubmit={handleOnResetSubmit}>
             <Form.Group>
               <Form.Label>Email address</Form.Label>

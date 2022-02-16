@@ -105,7 +105,7 @@ export const LoginForm = ({ formSwitcher }) => {
             </Button>
             </div>
             
-            {isLoading && <Spinner variant="primary" animation="border" />}
+            {isLoading && <Spinner variant="info" animation="border" />}
           </Form>
           <hr />
         </Col>

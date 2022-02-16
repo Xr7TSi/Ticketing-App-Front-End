@@ -234,7 +234,7 @@ const RegistrationForm = () => {
             </ul>
             <div className="text-center">
               <Button
-                variant="primary"
+                variant="info"
                 type="submit"
                 disabled={Object.values(passwordError).includes(false)}
               >
@@ -242,7 +242,7 @@ const RegistrationForm = () => {
               </Button>
             </div>
 
-            {isLoading && <Spinner animation="border" variant="primary" />}
+            {isLoading && <Spinner animation="border" variant="info" />}
           </Form>
         </Col>
       </Row>

@@ -37,7 +37,7 @@ export const Ticket = () => {
         </Row>
         <Row>
           <Col>
-            {isLoading &&<Spinner variant="primary" animation="border" />}
+            {isLoading &&<Spinner variant="info" animation="border" />}
             {error &&<Alert variant="danger">{error}</Alert>}
             {replyTicketError &&<Alert variant="danger">{replyTicketError}</Alert>}
             {replyMsg && <Alert variant="success">{replyMsg}</Alert>}
